@@ -37,6 +37,7 @@
    * [Installation](#installation)
    * [How-to Use](#how-to-use)
    * [Settings](#settings)
+   * [Advanced](#advanced)
    * [Contact](#contact)
 <!--te-->
 
@@ -117,7 +118,7 @@ You can also set the logger verbosity level in the **Edit** > **Log Level** menu
 <!-- ADVANCED -->
 ## Advanced
 
-The log and configuration files are stored in the `$APPDATA/fxhoucachemanager` folder on Windows, and in the `$HOME/.fxhoucachemanager` folder on Linux and macOS.
+The log and configuration files are stored in the `%APPDATA%/fxhoucachemanager` folder on Windows, and in the `$HOME/.fxhoucachemanager` folder on Linux and macOS.
 
 
 <!-- CONTACT -->
