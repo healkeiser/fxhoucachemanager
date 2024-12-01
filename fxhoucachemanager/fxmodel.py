@@ -94,7 +94,7 @@ class FXGatherCacheDataObject(QObject):
         """Initialize the worker."""
 
         super().__init__(parent)
-        self.houdini_variable = houdini_variable
+        self.houdini_variable = houdini_variable or None
         self.cache_root_path = Path(cache_root_path)
         self.version_pattern = version_pattern
         self.compiled_version_pattern = re.compile(version_pattern)
@@ -123,7 +123,12 @@ class FXGatherCacheDataObject(QObject):
         """Build a dictionary with all the necessary caches data."""
 
         start_time = time.time()
-        file_references = hou.fileReferences(self.houdini_variable, True)
+        file_references = (
+            hou.fileReferences(self.houdini_variable, include_all_refs=True)
+            if self.houdini_variable
+            else hou.fileReferences(include_all_refs=True)
+        )
+
         caches = {}
 
         filtered_file_references = self._filter_file_references(
