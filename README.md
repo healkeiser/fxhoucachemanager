@@ -115,7 +115,7 @@ You can modify the settings of the tool by clicking on the **Edit** > **Settings
 A dialog will appear, allowing you to set the regex pattern to use for the version extraction, the Houdini environment variable to use when looking for all the referenced files, and the root folder to scan for caches.
 
 <p align="center">
-  <img width="400" src="docs/images/houdini_Dhuz8CAFiY.png">
+  <img width="300" src="docs/images/houdini_Dhuz8CAFiY.png">
 </p>
 
 
