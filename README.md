@@ -1,12 +1,32 @@
 <div align="center">
-  <a href="">
-    <img src="" alt="FX Cache Manager" width="80" />
-  </a>
+
+  ![Logo](https://raw.githubusercontent.com/healkeiser/fxhoucachemanager/main/fxhoucachemanager/images/icons/fxhoucachemanager_dark.svg#gh-light-mode-only)
+  ![Logo](https://raw.githubusercontent.com/healkeiser/fxhoucachemanager/main/fxhoucachemanager/images/icons/fxhoucachemanager_light.svg#gh-dark-mode-only)
+
   <h3 align="center">fxcachemanager</h3>
+
   <p align="center">
     Cache manager for Houdini.
     <br/><br/>
   </p>
+
+  ##
+
+  <p align="center">
+    <!-- Maintenance status -->
+    <img src="https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg?&label=Maintenance">&nbsp;&nbsp;
+    <!-- <img src="https://img.shields.io/badge/maintenance-deprecated-red.svg?&label=Maintenance">&nbsp;&nbsp; -->
+    <!-- License -->
+    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?&logo=open-source-initiative&logoColor=white" alt="License: MIT"/>&nbsp;&nbsp;
+    <!-- Last Commit -->
+    <img src="https://img.shields.io/github/last-commit/healkeiser/fxhoucachemanager?logo=github&label=Last%20Commit" alt="Last Commit"/>&nbsp;&nbsp;
+    <!-- Commit Activity -->
+    <a href="https://github.com/healkeiser/fxhoucachemanager/pulse" alt="Activity">
+      <img src="https://img.shields.io/github/commit-activity/m/healkeiser/fxhoucachemanager?&logo=github&label=Commit%20Activity"/></a>&nbsp;&nbsp;
+    <!-- GitHub stars -->
+    <img src="https://img.shields.io/github/stars/healkeiser/fxhoucachemanager" alt="GitHub Stars"/>&nbsp;&nbsp;
+  </p>
+
 </div>
 
 
