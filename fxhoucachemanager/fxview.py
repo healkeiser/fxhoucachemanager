@@ -7,9 +7,9 @@ from typing import Dict, List, Optional
 
 # Third-party
 import hou
-from qtpy.QtCore import QThread, Qt, QPoint
-from qtpy.QtGui import QColor, QFont, QIcon
-from qtpy.QtWidgets import (
+from hutil.Qt.QtCore import QThread, Qt, QPoint
+from hutil.Qt.QtGui import QColor, QFont, QIcon
+from hutil.Qt.QtWidgets import (
     QPushButton,
     QLineEdit,
     QTreeWidget,
@@ -379,8 +379,9 @@ class FXCacheManagerMainWindow(QMainWindow):
         # Save tree expansion state
         self._save_expansion_state()
 
-        # Reset the progress bar
-        self._reset_progress_bar()
+        # Show and reset the progress bar
+        self.progress_bar.setValue(0)
+        self.progress_bar.setVisible(True)
 
         # Start the data retrieval in a separate thread to avoid
         # freezing the UI when scanning the caches
@@ -427,12 +428,13 @@ class FXCacheManagerMainWindow(QMainWindow):
         # Populate the tree based on the caches data we just retrieved
         self._populate_tree()
 
-        # Reset the progress bar
-        self._reset_progress_bar()
-
         self.statusBar().showMessage(
             "Loaded cache data", self.INFO, logger=_logger
         )
+
+        # Reset the progress bar
+        self.progress_bar.setValue(100)
+        self._reset_progress_bar()
 
     # ' Filter tree
     def _filter_item(
@@ -1304,6 +1306,15 @@ class FXCacheManagerMainWindow(QMainWindow):
 
         # Update the class attribute holding the cache data
         self.caches[node_name] = cache_data.get_data()
+
+        self.statusBar().showMessage(
+            f"Deleted {len(paths_to_delete)} unused cache(s)",
+            self.SUCCESS,
+            logger=_logger,
+        )
+
+        # Refresh the tree widget
+        self._start_worker()
 
     # ' Miscellaneous
     def _collapse_houdini_path(self, path: Path, node_name: str) -> str:

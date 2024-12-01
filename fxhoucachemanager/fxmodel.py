@@ -11,7 +11,7 @@ from typing import Generator, List, Union
 
 # Third-party
 import hou
-from qtpy.QtCore import QObject, Signal
+from hutil.Qt.QtCore import QObject, Signal
 
 # Internal
 from fxhoucachemanager import fxview, fxsettings

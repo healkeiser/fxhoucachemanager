@@ -1,1 +1,1 @@
-qtpy
+hutil.Qt

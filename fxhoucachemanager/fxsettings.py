@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Dict, Union
 
 # Third-party
-from qtpy.QtWidgets import (
+from hutil.Qt.QtWidgets import (
     QDialog,
     QVBoxLayout,
     QHBoxLayout,
@@ -13,7 +13,7 @@ from qtpy.QtWidgets import (
     QLabel,
     QFormLayout,
 )
-from qtpy.QtCore import Qt, Signal
+from hutil.Qt.QtCore import Qt, Signal
 
 # Internal
 from fxhoucachemanager import fxenvironment

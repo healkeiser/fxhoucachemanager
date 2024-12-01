@@ -7,12 +7,15 @@ Notes:
 # Built-in
 from datetime import datetime
 import logging
+import re
 from typing import Optional
 
 # Third-party
-from qtpy.QtGui import QPixmap
-from qtpy.QtWidgets import QTreeWidgetItem, QStatusBar, QWidget, QLabel
-from qtpy.QtCore import QCollator, Qt
+from hutil.Qt.QtGui import QPixmap
+from hutil.Qt.QtWidgets import QTreeWidgetItem, QStatusBar, QWidget, QLabel
+from hutil.Qt.QtCore import Qt
+
+# from hutil.Qt.QtCore import QCollator, Qt
 
 # Internal
 from fxhoucachemanager import fxstyle
@@ -23,7 +26,8 @@ if __import__("os").getenv("DEBUG_CODE") == "1":
     __import__("importlib").reload(fxstyle)
 
 
-class FXSortedTreeWidgetItem(QTreeWidgetItem):
+# ? Keeping for reference
+class _FXSortedTreeWidgetItem(QTreeWidgetItem):
     """Custom `QTreeWidgetItem` that provides natural sorting for strings
     containing numbers using QCollator for locale-aware sorting.
     """
@@ -50,6 +54,66 @@ class FXSortedTreeWidgetItem(QTreeWidgetItem):
 
         # Compare the items using QCollator
         return self.collator.compare(self.text(column), other.text(column)) < 0
+
+
+class FXSortedTreeWidgetItem(QTreeWidgetItem):
+    """Custom `QTreeWidgetItem` that provides natural sorting for strings
+    containing numbers. This is useful for sorting items like version numbers
+    or other strings where numeric parts should be ordered numerically.
+
+    For example, this class will sort the following strings in the correct
+    human-friendly order:
+
+    - "something1"
+    - "something9"
+    - "something17"
+    - "something25"
+
+    Instead of the default sorting order:
+
+    - "something1"
+    - "something17"
+    - "something25"
+    - "something9"
+    """
+
+    def __lt__(self, other: "FXSortedTreeWidgetItem") -> bool:
+        """Override the less-than operator to provide a custom sorting logic.
+
+        Args:
+            other: Another instance of `FXSortedTreeWidgetItem` to compare with.
+
+        Returns:
+            `True` if the current item is less than the other item according to
+            the natural sort order, `False` otherwise.
+        """
+
+        # Get the index of the column currently being used for sorting
+        column = self.treeWidget().sortColumn()
+
+        # Compare the items using the custom natural sort key
+        return self._generate_natural_sort_key(
+            self.text(column)
+        ) < self._generate_natural_sort_key(other.text(column))
+
+    def _generate_natural_sort_key(self, s: str) -> list:
+        """Generate a sort key for natural sorting of strings containing
+        numbers in a human-friendly way.
+
+        Args:
+            s: The string to sort.
+
+        Returns:
+            A list of elements where numeric parts are converted to integers
+            and other parts are converted to lowercase strings.
+        """
+
+        # Split the string into parts, converting numeric parts to integers
+        # and non-numeric parts to lowercase strings
+        return [
+            int(text) if text.isdigit() else text.lower()
+            for text in re.split("([0-9]+)", s)
+        ]
 
 
 class FXStatusBar(QStatusBar):
