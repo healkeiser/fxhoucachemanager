@@ -86,9 +86,9 @@ You can use the dropdown menu to select the version you want to load. It will im
   <img width="800" src="docs/images/houdini_RXORyu4roH.png">
 </p>
 
-You can expand the parent item to see all the versions available for a cache. The parent item will display the version currently loaded in the scene, and the children items will display the other versions available. The highest found version will be displayed in green, outdated versions will be displayed in yellow.
+You can expand the parent item to see all the versions available for a cache. The parent item will display the version currently loaded in the scene, and the children items will display the other versions available. The highest found version will be displayed in 🟩 green, outdated versions will be displayed in 🟨 yellow.
 
-If a path is referenced but not found on disk, the version will be displayed in red. If the file exists on disk but doesn't follow the expected format, the version will be displayed in grey-blue.
+If a path is referenced but not found on disk, the version will be displayed in 🟥 red. If the file exists on disk but doesn't follow the expected format, the version will be displayed in 🟦 grey-blue.
 
 <p align="center">
   <img width="800" src="docs/images/houdini_ll3phiJd8y.png">
