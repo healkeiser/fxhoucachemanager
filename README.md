@@ -61,10 +61,6 @@ You will be presented with this UI:
   <img width="500" src="docs/images/houdini_YfAwyT33tU.png">
 </p>
 
-<p align="center">
-  <img width="500" src="docs/images/___">
-</p>
-
 The tool will scan for caches in the root folder you've set in the [settings](#settings).
 The caches should be following this format `<cache_root>/<cache_name>/<cache_version>/<cache_name>.<ext>`, e.g. `$HIP/geo/flip/v001/flip.bgeo.sc`.
 
