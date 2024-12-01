@@ -45,9 +45,7 @@
 <!-- INSTALLATION -->
 ## Installation
 
-To install, simply copy-paste the [package.json](houdini/packages/fxhoucachemanager.json) file inside your `$HOUDINI_USER_PREF_DIR/packages` folder, and replace the value of the `$FXHOUCACHEMANAGER_ROOT` path depending on your OS.
-
-You'll also need an access to the `hutil.Qt` package, which is added in the same file through `$PYTHONPATH`: modify the path depending on your Python version, after installing the package using pip: `python -m pip install hutil.Qt`.
+To install, simply copy-paste the [package.json](houdini/packages/fxhoucachemanager.json) file inside your `$HOUDINI_USER_PREF_DIR/packages` folder, and replace the value of the `$FXHOUCACHEMANAGER` path depending on your OS.
 
 
 

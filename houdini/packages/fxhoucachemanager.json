@@ -8,25 +8,16 @@
                     "houdini_os == 'windows'": "D:/Code/fxhoucachemanager"
                 },
                 {
-                    "houdini_os == 'linux'": ""
+                    "houdini_os == 'linux'": "$HOME/Code/fxhoucachemanager"
                 },
                 {
-                    "houdini_os == 'macos'": ""
+                    "houdini_os == 'macos'": "$HOME/Code/fxhoucachemanager"
                 }
             ]
         },
         {
             "PYTHONPATH": [
                 "$FXHOUCACHEMANAGER",
-                {
-                    "houdini_python == 'python3.9'": "$PYENV_ROOT/versions/3.9.13/lib/site-packages"
-                },
-                {
-                    "houdini_python == 'python3.10'": "$PYENV_ROOT/versions/3.10.11/lib/site-packages"
-                },
-                {
-                    "houdini_python == 'python3.11'": "$PYENV_ROOT/versions/3.11.9/lib/site-packages"
-                },
                 {
                     "method": "append"
                 }
