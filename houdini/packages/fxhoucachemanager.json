@@ -1,0 +1,42 @@
+{
+    "load_package_once": true,
+    "enable": true,
+    "env": [
+        {
+            "FXHOUCACHEMANAGER": [
+                {
+                    "houdini_os == 'windows'": "D:/Code/fxhoucachemanager"
+                },
+                {
+                    "houdini_os == 'linux'": ""
+                },
+                {
+                    "houdini_os == 'macos'": ""
+                }
+            ]
+        },
+        {
+            "PYTHONPATH": [
+                "$FXHOUCACHEMANAGER",
+                {
+                    "houdini_python == 'python3.9'": "$PYENV_ROOT/versions/3.9.13/lib/site-packages"
+                },
+                {
+                    "houdini_python == 'python3.10'": "$PYENV_ROOT/versions/3.10.11/lib/site-packages"
+                },
+                {
+                    "houdini_python == 'python3.11'": "$PYENV_ROOT/versions/3.11.9/lib/site-packages"
+                },
+                {
+                    "method": "append"
+                }
+            ]
+        }
+    ],
+    "path": [
+        "$FXHOUCACHEMANAGER/houdini",
+        {
+            "method": "append"
+        }
+    ]
+}

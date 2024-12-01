@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${env:PYTHONPATH};${workspaceFolder};D:/Code/fxgui;",
+    },
+    "pylint.args": [
+        "--rcfile=pylintrc"
+    ],
+}

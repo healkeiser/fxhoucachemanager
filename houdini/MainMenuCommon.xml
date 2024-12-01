@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This file defines the main menu available in Houdini menu bar.
+    Add comment here
+-->
+
+<mainMenu>
+
+    <menuBar>
+
+        <!-- ======================== Main Menu ============================ -->
+
+        <subMenu id="fx::sub.MainMenuCommon">
+            <insertBefore>help_menu</insertBefore>
+            <label>FX</label>
+
+            <scriptItem id="h.fx::cache_manager">
+                <label>Cache Manager...</label>
+                <scriptCode>
+                    <![CDATA[
+from fxhoucachemanager import __main__
+from importlib import reload
+reload(__main__)
+__main__.run()
+            ]]>
+                </scriptCode>
+            </scriptItem>
+
+
+            <!-- ======================== End ============================== -->
+
+        </subMenu>
+
+        <!-- ======================== End Main Menu ======================== -->
+
+    </menuBar>
+
+</mainMenu>
