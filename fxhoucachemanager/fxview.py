@@ -137,6 +137,17 @@ class FXCacheManagerMainWindow(QMainWindow):
         self.log_level_actions["Info"].setChecked(True)
         set_log_level(logging.INFO)  # For the first time opening the app
 
+        edit_menu.addSeparator()
+
+        self.open_config_folder_action = edit_menu.addAction(
+            "Open Configuration Folder"
+        )
+        self.open_config_folder_action.triggered.connect(
+            lambda: hou.ui.showInFileBrowser(
+                str(fxenvironment.FXCACHEMANAGER_DATA_DIR)
+            )
+        )
+
         # Status bar
         self.status_bar = fxwidgets.FXStatusBar(
             parent=self,

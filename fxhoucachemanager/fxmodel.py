@@ -5,16 +5,17 @@ from collections import defaultdict
 import os
 import re
 import logging
+import json
 from pathlib import Path
 import time
-from typing import Generator, List, Union
+from typing import Any, Dict, Generator, List, Union
 
 # Third-party
 import hou
 from hutil.Qt.QtCore import QObject, Signal
 
 # Internal
-from fxhoucachemanager import fxview, fxsettings
+from fxhoucachemanager import fxview, fxsettings, fxenvironment
 from fxhoucachemanager.utils.logger import configure_logger
 
 
@@ -46,6 +47,45 @@ def scan_directory(directory: str) -> Generator[str, None, None]:
             yield entry.path
 
 
+def convert_to_serializable(obj: Any) -> Union[str, Any]:
+    """Convert non-serializable objects to a serializable format.
+
+    Args:
+        obj: The object to convert.
+
+    Returns:
+        The serializable representation of the object.
+    """
+
+    if isinstance(obj, Path):
+        return str(obj)
+    if isinstance(obj, hou.Node):
+        return obj.path()
+    if isinstance(obj, hou.Parm):
+        return obj.name()
+    return obj
+
+
+def make_serializable(data: Any) -> Any:
+    """Recursively convert all elements in the data to a serializable format.
+
+    Args:
+        data: The data to convert, which can be a dictionary, list, or any
+            other type.
+
+    Returns:
+        The serializable representation of the data.
+    """
+
+    if isinstance(data, dict):
+        return {
+            str(key): make_serializable(value) for key, value in data.items()
+        }
+    if isinstance(data, list):
+        return [make_serializable(element) for element in data]
+    return convert_to_serializable(data)
+
+
 class FXCacheData:
     def __init__(self, node, referenced_parm, used_cache_path):
         self.data = defaultdict(lambda: None)
@@ -66,10 +106,22 @@ class FXCacheData:
             }
         )
 
-    def update(self, updates):
+    def update(self, updates: Dict) -> None:
+        """Update the cache data with the provided updates.
+
+        Args:
+            updates: A dictionary containing the updates to apply.
+        """
+
         self.data.update(updates)
 
-    def get_data(self):
+    def get_data(self) -> Dict:
+        """Get the cache data as a dictionary.
+
+        Returns:
+            A dictionary containing the cache data.
+        """
+
         return dict(self.data)
 
 
@@ -162,10 +214,25 @@ class FXGatherCacheDataObject(QObject):
             elapsed_time,
         )
 
+        # Convert the caches dictionary to a serializable format
+        if os.getenv("DEBUG_CODE") == "1":
+            serializable_caches = make_serializable(caches)
+            output_path = fxenvironment.FXCACHEMANAGER_DATA_DIR / "caches.json"
+            with open(output_path, "w") as json_file:
+                json.dump(serializable_caches, json_file, indent=4)
+
         self.finished.emit(caches)
 
     def _filter_file_references(self, file_references: List) -> List:
-        """Filter and sort file references to remove duplicates."""
+        """Filter and sort file references to remove duplicates.
+
+        Args:
+            file_references: A list of file references from
+                `hou.fileReferences()`.
+
+        Returns:
+            A list of filtered and sorted file references.
+        """
 
         # Pre-filter `file_references` to remove duplicates
         # Since the `hou.fileReferences()` returns all parameters with a file
@@ -197,8 +264,16 @@ class FXGatherCacheDataObject(QObject):
 
     def _build_cache_data(
         self, referenced_parm: hou.Parm, used_cache_path: Path
-    ):
-        """Build cache data for a single file reference."""
+    ) -> Dict:
+        """Build cache data for a single file reference.
+
+        Args:
+            referenced_parm: The referenced parameter.
+            used_cache_path: The used cache path.
+
+        Returns:
+            A dictionary containing the cache data.
+        """
 
         # Get the node associated with the referenced parameter
         node = referenced_parm.node()
