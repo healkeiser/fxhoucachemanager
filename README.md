@@ -58,7 +58,7 @@ You can launch the **FX Cache Manager** through the **FX** menu, or the **FX Cac
 You will be presented with this UI:
 
 <p align="center">
-  <img width="800" src="docs/images/houdini_YfAwyT33tU.png">
+  <img width="650" src="docs/images/houdini_YfAwyT33tU.png">
 </p>
 
 The tool will scan for caches in the root folder you've set in the [settings](#settings).
@@ -67,23 +67,23 @@ The caches should be following this format `<cache_root>/<cache_name>/<cache_ver
 In the case where the scene has a huge number of caches, you might notice a progress bar at the bottom of the UI. This is to indicate the progress of the cache scanning. The progress bar will disappear once the scanning is done.
 
 <p align="center">
-  <img width="800" src="docs/images/houdini_AeGcR1lY8o.png">
+  <img width="650" src="docs/images/houdini_AeGcR1lY8o.png">
 </p>
 
 You can filter the caches by name, but also by extensions using the buttons on the bottom right of the UI.
 
 <p align="center">
-  <img width="800" src="docs/images/houdini_9IohqVM41N.png">
+  <img width="650" src="docs/images/houdini_9IohqVM41N.png">
 </p>
 
 You can use the dropdown menu to select the version you want to load. It will immediately load the cache in the scene.
 
 <p align="center">
-  <img width="800" src="docs/images/houdini_tGH3eV90WE.png">
+  <img width="650" src="docs/images/houdini_tGH3eV90WE.png">
 </p>
 
 <p align="center">
-  <img width="800" src="docs/images/houdini_RXORyu4roH.png">
+  <img width="650" src="docs/images/houdini_RXORyu4roH.png">
 </p>
 
 You can expand the parent item to see all the versions available for a cache. The parent item will display the version currently loaded in the scene, and the children items will display the other versions available. The highest found version will be displayed in 🟩 green, outdated versions will be displayed in 🟨 yellow.
@@ -91,13 +91,13 @@ You can expand the parent item to see all the versions available for a cache. Th
 If a path is referenced but not found on disk, the version will be displayed in 🟥 red. If the file exists on disk but doesn't follow the expected format, the version will be displayed in 🟦 grey-blue.
 
 <p align="center">
-  <img width="800" src="docs/images/houdini_ll3phiJd8y.png">
+  <img width="650" src="docs/images/houdini_ll3phiJd8y.png">
 </p>
 
 A right-click on a selection of caches will open a context menu allowing you to perform a variety of actions:
 
 <p align="center">
-  <img width="800" src="docs/images/houdini_VBsgukKjOg.png">
+  <img width="650" src="docs/images/houdini_VBsgukKjOg.png">
 </p>
 
 When selecting **Update All to Latest** or **Delete Unused Caches**, a confirmation dialog will appear, asking you to confirm the action.
