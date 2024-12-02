@@ -62,7 +62,11 @@ You will be presented with this UI:
 </p>
 
 The tool will scan for caches in the root folder you've set in the [settings](#settings).
-The caches should be following this format `<cache_root>/<cache_name>/<cache_version>/<cache_name>.<ext>`, e.g. `$HIP/geo/flip/v001/flip.bgeo.sc`.
+
+> [!IMPORTANT]
+> The caches should be following this format `<cache_root>/<cache_name>/<cache_version>/<cache_file>`. For example:
+> - `$HIP/geo/flip/v001/flip.bgeo.sc` where `$HIP/geo` is the root folder, `flip` is the cache name, `v001` is the cache version, and `flip.bgeo.sc` is the cache file.
+> - `$JOB/geo/flip/17/myBeautifulFlip.bgeo.sc` where `$JOB/geo` is the root folder, `flip` is the cache name, `17` is the cache version, and `myBeautifulFlip.bgeo.sc` is the cache file.
 
 In the case where the scene has a huge number of caches, you might notice a progress bar at the bottom of the UI. This is to indicate the progress of the cache scanning. The progress bar will disappear once the scanning is done.
 
@@ -114,7 +118,7 @@ When selecting **Update All to Latest** or **Delete Unused Caches**, a confirmat
 ## Settings
 
 You can modify the settings of the tool by clicking on the **Edit** > **Settings** button, in the menu bar.
-A dialog will appear, allowing you to set the regex pattern <sup>[1](#footnote1)</sup> to use for the version extraction, the Houdini environment variable to use to replace in the paths <sup>[2](#footnote2)</sup>, and the root folder to scan for caches.
+A dialog will appear, allowing you to set the regex pattern <sup>[1](#footnote1)</sup> to use for the version extraction, the Houdini environment variable to use to replace in the paths <sup>[2](#footnote2)</sup>, and the root folder to scan for caches <sup>[2](#footnote3)</sup>.
 
 <p align="center">
   <img width="300" src="docs/images/houdini_Dhuz8CAFiY.png">
@@ -131,6 +135,9 @@ A dialog will appear, allowing you to set the regex pattern <sup>[1](#footnote1)
 > <sup id="footnote2">2</sup> As described in the [fileReferences](https://www.sidefx.com/docs/houdini/hom/hou/fileReferences.html) documentation:
 > > You can specify the name of an environment variable. If an asset path starts with the variable, it will be replaced with a variable reference in the path string returned by this function. For example, if `$JOB` is `/mnt/projects/` and an asset is in `/mnt/projects/tool.hda`, if you call `hou.fileReferences("JOB")`, it will return the path as `$JOB/tool.hda`.
 
+> [!NOTE]
+> <sup id="footnote3">3</sup> Any environment variable will be expanded. E.g. `$HIP` will be replaced by the current Houdini scene path, `$JOB` will be replaced by the current Houdini job path, etc.
+
 You can also set the logger verbosity level in the **Edit** > **Log Level** menu.
 
 
@@ -139,6 +146,10 @@ You can also set the logger verbosity level in the **Edit** > **Log Level** menu
 ## Advanced
 
 The log and configuration files are stored in the `%APPDATA%/fxhoucachemanager` folder on Windows, and in the `$HOME/.fxhoucachemanager` folder on Linux and macOS.
+
+> [!WARNING]
+> One log file is saved per day, so you might want to clean up the folder from time to time.
+
 
 
 <!-- CONTACT -->
