@@ -3,7 +3,7 @@
   ![Logo](https://raw.githubusercontent.com/healkeiser/fxhoucachemanager/main/fxhoucachemanager/images/icons/fxhoucachemanager_dark.svg#gh-light-mode-only)
   ![Logo](https://raw.githubusercontent.com/healkeiser/fxhoucachemanager/main/fxhoucachemanager/images/icons/fxhoucachemanager_light.svg#gh-dark-mode-only)
 
-  <h3 align="center">fxcachemanager</h3>
+  <h3 align="center">fxhoucachemanager</h3>
 
   <p align="center">
     Cache manager for Houdini.
