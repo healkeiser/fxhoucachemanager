@@ -65,7 +65,7 @@ The tool will scan for caches in the root folder you've set in the [settings](#s
 
 > [!IMPORTANT]
 > The caches should be following this format `<cache_root>/<cache_name>/<cache_version>/<cache_file>`. For example:
-> - `$HIP/geo/flip/v001/flip.bgeo.sc` where `$HIP/geo` is the root folder, `flip` is the cache name, `v001` is the cache version, and `flip.bgeo.sc` is the cache file.
+> - `$HIP/geo/flip/v001/flip_v001.bgeo.sc` where `$HIP/geo` is the root folder, `flip` is the cache name, `v001` is the cache version, and `flip.bgeo.sc` is the cache file.
 > - `$JOB/geo/flip/17/myBeautifulFlip.bgeo.sc` where `$JOB/geo` is the root folder, `flip` is the cache name, `17` is the cache version, and `myBeautifulFlip.bgeo.sc` is the cache file.
 
 In the case where the scene has a huge number of caches, you might notice a progress bar at the bottom of the UI. This is to indicate the progress of the cache scanning. The progress bar will disappear once the scanning is done.
