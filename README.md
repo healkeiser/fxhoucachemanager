@@ -155,7 +155,7 @@ The log and configuration files are stored in the `%APPDATA%/fxhoucachemanager` 
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [fxgui](https://github.com/healkeiser/fxhoucachemanager)
+Project Link: [fxhoucachemanager](https://github.com/healkeiser/fxhoucachemanager)
 
 <p align='center'>
   <!-- GitHub profile -->
