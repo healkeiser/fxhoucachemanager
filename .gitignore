@@ -3,6 +3,7 @@ _tmp/
 _houdini/
 _dev/
 _old/
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
