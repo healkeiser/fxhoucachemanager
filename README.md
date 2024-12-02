@@ -114,14 +114,21 @@ When selecting **Update All to Latest** or **Delete Unused Caches**, a confirmat
 ## Settings
 
 You can modify the settings of the tool by clicking on the **Edit** > **Settings** button, in the menu bar.
-A dialog will appear, allowing you to set the regex pattern to use for the version extraction, the Houdini environment variable to use to replace in the paths <sup>[1](#footnote1)</sup>, and the root folder to scan for caches.
+A dialog will appear, allowing you to set the regex pattern <sup>[1](#footnote1)</sup> to use for the version extraction, the Houdini environment variable to use to replace in the paths <sup>[2](#footnote2)</sup>, and the root folder to scan for caches.
 
 <p align="center">
   <img width="300" src="docs/images/houdini_Dhuz8CAFiY.png">
 </p>
 
+> [!TIP]
+> <sup id="footnote1">1</sup> The default regex pattern is `v\d{3}`, which will match any version number with 3 digits, e.g. `v001`.
+> Some other patterns you might want to use:
+> - `v\d+` will match any version number with at least 1 digit, e.g. `v1`, `v78`, `v999`, etc.
+> - `^\d{3}$` will match any version number with exactly 3 digits, e.g. `001`, `078`, `999`, etc.
+> - `^\d+$` will match any version number with at least 1 digit, e.g. `1`, `78`, `999`, etc.
+
 > [!NOTE]
-> <sup id="footnote1">1</sup> As described in the [fileReferences](https://www.sidefx.com/docs/houdini/hom/hou/fileReferences.html) documentation:
+> <sup id="footnote2">1</sup> As described in the [fileReferences](https://www.sidefx.com/docs/houdini/hom/hou/fileReferences.html) documentation:
 > > You can specify the name of an environment variable. If an asset path starts with the variable, it will be replaced with a variable reference in the path string returned by this function. For example, if `$JOB` is `/mnt/projects/` and an asset is in `/mnt/projects/tool.hda`, if you call `hou.fileReferences("JOB")`, it will return the path as `$JOB/tool.hda`.
 
 You can also set the logger verbosity level in the **Edit** > **Log Level** menu.
