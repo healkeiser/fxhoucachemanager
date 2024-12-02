@@ -144,13 +144,6 @@ class FXGatherCacheDataObject(QObject):
             )
             caches[referenced_parm.node().name()] = cache_data
 
-            # Example dictionary:
-            # {
-            #     "node_name": {
-            #         "cache_node": hou.Node,
-            #         "cache_path": Path,
-            #     },
-
             progress = int((index + 1) / total_files * 100)
             self.progress.emit(progress)
 
@@ -194,18 +187,11 @@ class FXGatherCacheDataObject(QObject):
             key=lambda x: str(x[1]),
         )
 
-        if _logger.isEnabledFor(logging.DEBUG):
-            _logger.debug("Number files referenced: %d", len(file_references))
-            _logger.debug(
-                "Number filtered files referenced: %d",
-                len(filtered_file_references),
-            )
-
-            for reference in file_references:
-                _logger.debug("File reference: %s", reference)
-
-            for reference in filtered_file_references:
-                _logger.debug("Filtered file reference: %s", reference)
+        _logger.debug("Number files referenced: %d", len(file_references))
+        _logger.debug(
+            "Number filtered files referenced: %d",
+            len(filtered_file_references),
+        )
 
         return filtered_file_references
 
