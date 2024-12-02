@@ -114,14 +114,14 @@ When selecting **Update All to Latest** or **Delete Unused Caches**, a confirmat
 ## Settings
 
 You can modify the settings of the tool by clicking on the **Edit** > **Settings** button, in the menu bar.
-A dialog will appear, allowing you to set the regex pattern to use for the version extraction, the Houdini environment variable to use to replace in the paths<sup>[1](#footnote1)</sup>, and the root folder to scan for caches.
+A dialog will appear, allowing you to set the regex pattern to use for the version extraction, the Houdini environment variable to use to replace in the paths <sup>[1](#footnote1)</sup>, and the root folder to scan for caches.
 
 <p align="center">
   <img width="300" src="docs/images/houdini_Dhuz8CAFiY.png">
 </p>
 
 > [!NOTE]
-> <sup id="footnote1">1</sup>As described in the [fileReferences](https://www.sidefx.com/docs/houdini/hom/hou/fileReferences.html) documentation:
+> <sup id="footnote1">1</sup> As described in the [fileReferences](https://www.sidefx.com/docs/houdini/hom/hou/fileReferences.html) documentation:
 > > You can specify the name of an environment variable. If an asset path starts with the variable, it will be replaced with a variable reference in the path string returned by this function. For example, if `$JOB` is `/mnt/projects/` and an asset is in `/mnt/projects/tool.hda`, if you call `hou.fileReferences("JOB")`, it will return the path as `$JOB/tool.hda`.
 
 You can also set the logger verbosity level in the **Edit** > **Log Level** menu.
