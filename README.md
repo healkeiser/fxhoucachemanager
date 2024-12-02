@@ -128,7 +128,7 @@ A dialog will appear, allowing you to set the regex pattern <sup>[1](#footnote1)
 > - `^\d+$` will match any version number with at least 1 digit, e.g. `1`, `78`, `999`, etc.
 
 > [!NOTE]
-> <sup id="footnote2">1</sup> As described in the [fileReferences](https://www.sidefx.com/docs/houdini/hom/hou/fileReferences.html) documentation:
+> <sup id="footnote2">2</sup> As described in the [fileReferences](https://www.sidefx.com/docs/houdini/hom/hou/fileReferences.html) documentation:
 > > You can specify the name of an environment variable. If an asset path starts with the variable, it will be replaced with a variable reference in the path string returned by this function. For example, if `$JOB` is `/mnt/projects/` and an asset is in `/mnt/projects/tool.hda`, if you call `hou.fileReferences("JOB")`, it will return the path as `$JOB/tool.hda`.
 
 You can also set the logger verbosity level in the **Edit** > **Log Level** menu.
